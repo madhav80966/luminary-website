@@ -1,0 +1,161 @@
+<!-- recruiter-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruiter Dashboard | Luminary Staffing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fdfaf6;
+      margin: 0;
+      color: #333;
+    }
+    .dashboard {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    }
+    h2 {
+      color: #0b1b35;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #0b1b35;
+      color: #fff;
+    }
+    input[type="number"], input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .submit-btn {
+      margin-top: 10px;
+      background-color: #0b1b35;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #f5b200;
+      color: #0b1b35;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Luminary Staffing</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../how-it-works.html">How It Works</a></li>
+          <li><a href="../plans.html">Plans</a></li>
+          <li><a href="../login.html">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="dashboard">
+    <h2>Recruiter Dashboard</h2>
+
+    <div class="section">
+      <h3>Update Job Applications</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Candidate Name</th>
+            <th>Applications Today</th>
+            <th>Job Update / Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Priya Sharma</td>
+            <td><input type="number" placeholder="e.g. 20"></td>
+            <td><input type="text" placeholder="e.g. Interview Scheduled"></td>
+            <td><button class="submit-btn">Submit</button></td>
+          </tr>
+          <tr>
+            <td>Rahul Mehta</td>
+            <td><input type="number" placeholder="e.g. 25"></td>
+            <td><input type="text" placeholder="e.g. Application Viewed"></td>
+            <td><button class="submit-btn">Submit</button></td>
+          </tr>
+          <tr>
+            <td>Divya Nair</td>
+            <td><input type="number" placeholder="e.g. 30"></td>
+            <td><input type="text" placeholder="e.g. Rejected - Skill mismatch"></td>
+            <td><button class="submit-btn">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    const submitButtons = document.querySelectorAll('.submit-btn');
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxmdyG9XLKdIGF5wTNwwaRlhF60bMuHK9cUCktQ2hS-eMAAI08fryPoMXRSPA1hW5ngNg/exec";
+  
+    submitButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('tr');
+        const candidate = row.cells[0].innerText;
+        const jobsApplied = row.cells[1].querySelector('input').value;
+        const status = row.cells[2].querySelector('input').value;
+        const recruiter = "Recruiter_01"; // Replace this with actual login detection later
+  
+        if (!jobsApplied || !status) {
+          alert("Please fill in all fields before submitting.");
+          return;
+        }
+  
+        fetch(scriptURL, {
+          method: "POST",
+          mode: "no-cors",  // Bypass CORS restrictions (for local testing)
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            recruiter,
+            candidate,
+            jobsApplied,
+            status
+          })
+        })
+        .then(() => {
+          alert("✅ Submitted successfully!");
+          row.cells[1].querySelector('input').value = "";
+          row.cells[2].querySelector('input').value = "";
+        })
+        .catch(err => {
+          console.error("❌ Error submitting:", err);
+          alert("Something went wrong. Please try again.");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Started | Luminary Staffing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fdfaf6;
+      color: #333;
+    }
+    header {
+      background-color: #0b1b35;
+      padding: 20px 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f5b200;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .form-section {
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+    h2 {
+      color: #0b1b35;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .form-type {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .form-type button {
+      padding: 10px 25px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #0b1b35;
+      color: white;
+    }
+    .form-type button.active {
+      background-color: #f5b200;
+      color: #0b1b35;
+    }
+    .submit-btn {
+      background-color: #0b1b35;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #f5b200;
+      color: #0b1b35;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Luminary Staffing</div>
+      <nav>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="plans.html">Plans</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="form-section">
+    <h2>Get Started</h2>
+
+    <div class="form-type">
+      <button id="existingBtn" class="active">Already Enrolled</button>
+      <button id="newBtn">Want to Know More</button>
+    </div>
+
+    <form id="existingForm">
+      <label for="candidateID">Candidate ID</label>
+      <input type="text" id="candidateID" placeholder="Enter your Candidate ID" required />
+
+      <button type="submit" class="submit-btn">Continue</button>
+    </form>
+
+    <form id="newForm" style="display: none;">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Your Name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required />
+
+      <label for="whatsapp">WhatsApp Number</label>
+      <input type="text" id="whatsapp" placeholder="e.g. +1 123-456-7890" required />
+
+      <label for="auth">Current Work Authorization</label>
+      <input type="text" id="auth" placeholder="e.g. OPT, H1B, GC EAD" required />
+
+      <label for="city">City</label>
+      <input type="text" id="city" required />
+
+      <label for="state">State</label>
+      <input type="text" id="state" required />
+
+      <label for="jobtitle">Desired Job Title</label>
+      <input type="text" id="jobtitle" placeholder="e.g. Data Analyst, Developer" required />
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const existingBtn = document.getElementById('existingBtn');
+    const newBtn = document.getElementById('newBtn');
+    const existingForm = document.getElementById('existingForm');
+    const newForm = document.getElementById('newForm');
+
+    existingBtn.addEventListener('click', () => {
+      existingBtn.classList.add('active');
+      newBtn.classList.remove('active');
+      existingForm.style.display = 'block';
+      newForm.style.display = 'none';
+    });
+
+    newBtn.addEventListener('click', () => {
+      newBtn.classList.add('active');
+      existingBtn.classList.remove('active');
+      newForm.style.display = 'block';
+      existingForm.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

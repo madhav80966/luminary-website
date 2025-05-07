@@ -1,0 +1,381 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Fonts */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #2d2d2d;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation */
+header {
+  background-color: #001f3f; /* Deep Navy */
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 25px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f0c040; /* Gold accent */
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #fdfaf6, #ffffff);
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #001f3f;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555555;
+  margin-bottom: 40px;
+}
+
+.buttons .btn {
+  display: inline-block;
+  background-color: #001f3f;
+  color: #ffffff;
+  padding: 14px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buttons .btn:hover {
+  background-color: #f0c040;
+  color: #001f3f;
+  transform: translateY(-3px);
+}
+
+/* Section General */
+.page-content {
+  padding: 80px 20px;
+  background-color: #ffffff;
+}
+
+.page-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #001f3f;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.page-content p,
+.page-content li {
+  font-size: 1.1rem;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+/* Timeline Steps */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.step-card {
+  background: #fdfaf6;
+  border-left: 5px solid #f0c040;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Plans Table */
+.plans-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.plans-table th,
+.plans-table td {
+  padding: 15px 20px;
+  border: 1px solid #dddddd;
+  text-align: center;
+}
+
+.plans-table th {
+  background-color: #001f3f;
+  color: #ffffff;
+}
+
+.plans-table td {
+  background-color: #fdfaf6;
+}
+
+/* Footer */
+footer {
+  background-color: #001f3f;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* Buttons General */
+.btn {
+  background-color: #001f3f;
+  color: #ffffff;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #f0c040;
+  color: #001f3f;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ==== Our Story Section ==== */
+.our-story-section {
+  padding: 100px 20px;
+  background-color: #ffffff;
+}
+
+.story-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.story-text {
+  flex: 1;
+  min-width: 300px;
+  z-index: 2;
+}
+
+.story-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #001f3f;
+  margin-bottom: 20px;
+}
+
+.story-text p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.story-visual {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  height: 280px;
+}
+
+.story-visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: scale(1.05);
+}
+
+/* ==== Responsive ==== */
+@media screen and (max-width: 768px) {
+  .story-flex {
+    flex-direction: column;
+  }
+
+  .story-visual {
+    height: 200px;
+  }
+
+  .story-text h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.plans-section {
+  background: #fdfaf6;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.plans-section h1 {
+  font-size: 2.6rem;
+  color: #0b1b35;
+  margin-bottom: 50px;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.plan-card {
+  background: white;
+  border-radius: 12px;
+  padding: 35px 25px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.plan-card h2 {
+  font-size: 1.3rem;
+  color: #0b1b35;
+  margin-bottom: 15px;
+}
+
+.plan-card p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.plan-card .price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0b1b35;
+  margin-top: 15px;
+}
+
+.plan-card .price span {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #555;
+}
+
+.plan-card.highlight {
+  border-top: 4px solid #f5b200;
+}
+
+.note,
+.limited-policy {
+  max-width: 850px;
+  margin: auto;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding: 10px 0;
+}
+
+.limited-policy {
+  margin-top: 40px;
+  color: #c00000;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.limited-policy em {
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.pricing-table tr {
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pricing-table tr:hover {
+  background-color: #f9f9f9;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.custom-plan td {
+  background: #fffbea;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-small {
+  background-color: #0b1b35;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+  background-color: #f5b200;
+  color: #0b1b35;
+}

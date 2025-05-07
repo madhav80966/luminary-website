@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Luminary Staffing</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: #333;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #0b1b35;
+      color: white;
+      padding: 20px 0;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f5b200;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin-left: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #f5b200;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b1b35, #122848);
+      color: white;
+      padding: 120px 20px 80px;
+      text-align: center;
+    }
+
+   .hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffffff; /* CHANGED from default dark */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #f5b200; /* Lighter, easier to read on dark background */
+}
+
+    .section {
+      padding: 80px 20px;
+      background-color: #fdfaf6;
+      text-align: center;
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .grid-section {
+      background-color: #eaf3fa;
+      padding: 80px 20px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card h3 {
+      color: #0b1b35;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #f5b200, #ffda7b);
+      padding: 60px 20px;
+      color: #0b1b35;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #0b1b35;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f5b200;
+      color: #0b1b35;
+    }
+
+    footer {
+      background-color: #0b1b35;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">Luminary Staffing</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="plans.html">Plans</a></li>
+          <li><a href="signup.html">Get Started</a></li>
+          <li><a href="login.html" id="nav-login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-up">
+    <h1>Where Your Career Aspirations Meet Precision Strategy</h1>
+    <p>At Luminary Staffing, we help ambitious professionals land their dream roles with structure, momentum, and strategy — all built around them.</p>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section" data-aos="fade-up">
+    <p>Imagine having a dedicated team working behind the scenes — applying to hundreds to thousands of curated jobs monthly — while you prepare for interviews and grow your skills.</p>
+    <p>We’re not just an agency. We are your momentum machine — structured around your unique strengths, values, and career goals.</p>
+    <p>Every resume, every application, every follow-up is intentional, data-backed, and personalized for you.</p>
+    <p>This is where it begins.</p>
+  </section>
+
+  <!-- Features Section -->
+  <section class="grid-section" data-aos="fade-up">
+    <h2 style="text-align:center; color:#0b1b35; font-size:2rem; margin-bottom:40px;">Why Professionals Choose Luminary</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>✓ Dedicated Team</h3>
+        <p>We act as your behind-the-scenes job search squad — handling the heavy lifting while you focus on preparation.</p>
+      </div>
+      <div class="feature-card">
+        <h3>✓ Data-Backed Strategy</h3>
+        <p>Every submission follows a custom strategy designed to maximize interviews and relevance in your market.</p>
+      </div>
+      <div class="feature-card">
+        <h3>✓ Silent Momentum</h3>
+        <p>Your applications never sleep. Even while you're offline, we’re creating consistent movement and visibility.</p>
+      </div>
+      <div class="feature-card">
+        <h3>✓ Personalized Touch</h3>
+        <p>We don't believe in templates. We believe in targeted, thoughtful branding built uniquely around you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section" data-aos="fade-up">
+    <h2>Ready to build your momentum?</h2>
+    <a href="how-it-works.html" class="btn">See How We Work</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    const storedUser = localStorage.getItem('luminary_signup');
+    if (storedUser) {
+      const navLogin = document.getElementById('nav-login');
+      navLogin.innerText = 'Profile';
+      navLogin.href = 'dashboard/seeker-dashboard.html';
+    }
+  </script>
+
+</body>
+</html>

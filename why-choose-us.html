@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luminary Staffing | Welcome</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: none;
+      backdrop-filter: blur(3px);
+      color: #001f3f;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .welcome-container {
+      text-align: center;
+      padding: 40px;
+      background: #ffffffd9;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #001f3f;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #001f3f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f0c040;
+      color: #001f3f;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop id="bgVideo" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -1;">
+    <source src="assets/media/welcome-bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="welcome-container">
+    <h1>Welcome to Luminary Staffing</h1>
+    <p>Let’s launch your career journey — smarter, faster, better.</p>
+    <a href="signup.html" class="btn">Sign Up</a>
+    <a href="login.html" class="btn">Login</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!-- admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Luminary Staffing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fdfaf6;
+      margin: 0;
+      color: #333;
+    }
+    .dashboard {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+    h2 {
+      color: #0b1b35;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #0b1b35;
+      color: #fff;
+    }
+    input[type="text"], select {
+      padding: 8px;
+      width: 90%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .submit-btn {
+      background-color: #0b1b35;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #f5b200;
+      color: #0b1b35;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Luminary Staffing</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../how-it-works.html">How It Works</a></li>
+          <li><a href="../plans.html">Plans</a></li>
+          <li><a href="../login.html">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="dashboard">
+    <h2>Admin Dashboard</h2>
+
+    <h3>All Seekers</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Current Plan</th>
+          <th>Recruiter Assigned</th>
+          <th>Assign Recruiter</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Priya Sharma</td>
+          <td>priya@example.com</td>
+          <td>Accelerator</td>
+          <td>John R</td>
+          <td><input type="text" placeholder="New Recruiter" /></td>
+        </tr>
+        <tr>
+          <td>Rahul Mehta</td>
+          <td>rahul@example.com</td>
+          <td>Starter</td>
+          <td>Rachel S</td>
+          <td><input type="text" placeholder="New Recruiter" /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Change Plan / Update Controls</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Seeker Name</th>
+          <th>Current Plan</th>
+          <th>Change To</th>
+          <th>Apply</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Divya Nair</td>
+          <td>Pro Launch</td>
+          <td>
+            <select>
+              <option>Starter</option>
+              <option>Accelerator</option>
+              <option>Pro Launch</option>
+              <option>Ultimate</option>
+            </select>
+          </td>
+          <td><button class="submit-btn">Update</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

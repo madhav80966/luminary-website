@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing Plans | Luminary Staffing</title>
+
+  <!-- Fonts & Style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fdfaf6;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0b1b35;
+      padding: 20px 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f5b200;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f5b200;
+    }
+
+    .plans-section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .plans-section h1 {
+      font-size: 2.6rem;
+      color: #0b1b35;
+      margin-bottom: 50px;
+    }
+
+    .pricing-table {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      border-collapse: separate;
+      border-spacing: 0 15px;
+    }
+
+    .pricing-table th {
+      background: #0b1b35;
+      color: white;
+      padding: 18px;
+      font-size: 1rem;
+    }
+
+    .pricing-table td {
+      background: white;
+      padding: 20px 25px;
+      font-size: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pricing-table tr:hover td {
+      transform: scale(1.015);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .pricing-table td.price {
+      font-weight: 700;
+      color: #0b1b35;
+      font-size: 1.2rem;
+    }
+
+    .note,
+    .policy-box {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 10px 20px;
+    }
+
+    .note strong {
+      font-weight: 600;
+      color: #111;
+    }
+
+    .policy-box {
+      margin-top: 40px;
+      border-left: 6px solid #c62828;
+      background-color: #fff4f4;
+      color: #8b0000;
+    }
+
+    .policy-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: #0b1b35;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.95rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-table td {
+        font-size: 0.95rem;
+        padding: 16px;
+      }
+
+      .plans-section h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">Luminary Staffing</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="plans.html">Plans</a></li>
+          <li><a href="signup.html">Get Started</a></li>
+          <li><a href="login.html" id="nav-login">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="plans-section">
+    <h1>Pricing Plans</h1>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Applications / Month</th>
+          <th>Price / Month</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Starter Plan</td>
+          <td><strong>600</strong></td>
+          <td class="price">$199</td>
+        </tr>
+        <tr>
+          <td>Accelerator Plan</td>
+          <td><strong>1000</strong></td>
+          <td class="price">$279</td>
+        </tr>
+        <tr>
+          <td>Pro Launch Plan</td>
+          <td><strong>1500</strong></td>
+          <td class="price">$349</td>
+        </tr>
+        <tr>
+          <td>Ultimate Success Plan</td>
+          <td><strong>2000</strong></td>
+          <td class="price">$429</td>
+        </tr>
+        <tr class="custom-plan">
+          <td><strong>Aggressive Custom Plan</strong></td>
+          <td><em>More than 2000</em></td>
+          <td><a href="mailto:helpmeluminary@gmail.com" class="btn-small">Discuss with Coordinator</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <p><strong>Candidates who complete their onboarding within 24 hours</strong> of their consultation are eligible for a <strong>Limited Early-Bird Discount — 10% off their first month’s rate.</strong></p>
+      <p style="font-size: 0.95rem;">(Subject to availability. Please check with your consultant.)</p>
+      <p style="font-size: 0.95rem;">After slots are filled, new candidates are placed into a waiting queue, which may delay your job search by several weeks.</p>
+    </div>
+
+    <div class="policy-box">
+      <h3>Important: Limited Enrollment Policy</h3>
+      <p>Due to the intensive nature of our services and our commitment to quality, we strictly limit the number of active candidates each month.</p>
+      <p>If onboarding is not completed within 24 hours post-consultation, you may be placed into a waiting queue, potentially delaying your job search by several weeks.</p>
+      <p><strong>Take action early to secure your onboarding slot and begin accelerating your career immediately.</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Luminary Staffing. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const storedUser = localStorage.getItem('luminary_signup');
+    if (storedUser) {
+      const navLogin = document.getElementById('nav-login');
+      navLogin.innerText = 'Profile';
+      navLogin.href = 'dashboard/seeker-dashboard.html';
+    }
+  </script>
+
+</body>
+</html>

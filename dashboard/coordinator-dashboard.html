@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coordinator Dashboard | Luminary Staffing</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">Luminary Staffing</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../how-it-works.html">How It Works</a></li>
+        <li><a href="../why-choose-us.html">Why Join Us</a></li>
+        <li><a href="../plans.html">Plans</a></li>
+        <li><a href="../signup.html">Signup</a></li>
+        <li><a href="../login.html">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="dashboard-content">
+  <div class="container">
+    <h1 id="welcomeName">Welcome, [Coordinator]</h1>
+    <p style="text-align:center;">Recruiter & Candidate Tracking Overview</p>
+
+    <h2 style="margin-top:40px;">Recruiter Performance Overview</h2>
+
+    <table class="dashboard-table">
+      <thead>
+        <tr>
+          <th>Recruiter Name</th>
+          <th>Email</th>
+          <th>Assigned Candidates</th>
+          <th>Confirmed Updates %</th>
+        </tr>
+      </thead>
+      <tbody id="recruiterList">
+        <!-- Dynamic recruiter rows here -->
+      </tbody>
+    </table>
+
+    <a href="../index.html" class="btn" style="margin-top:40px;">Logout</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Luminary Staffing. All Rights Reserved.</p>
+</footer>
+
+<script>
+const user = JSON.parse(localStorage.getItem('current_user'));
+if (user) {
+  document.getElementById('welcomeName').innerText = `Welcome, ${user.fullName}`;
+}
+
+const users = JSON.parse(localStorage.getItem('luminary_users')) || [];
+const applications = JSON.parse(localStorage.getItem('applications_log')) || [];
+
+// Pull all Recruiters
+const recruiters = users.filter(u => u.role === "recruiter");
+
+const recruiterList = document.getElementById('recruiterList');
+
+if (recruiters.length === 0) {
+  recruiterList.innerHTML = `<tr><td colspan="4" style="text-align:center;">No recruiters registered yet.</td></tr>`;
+} else {
+  recruiters.forEach(rec => {
+    const assignedCandidates = users.filter(seeker => seeker.role === "seeker" && seeker.assignedRecruiter === rec.email);
+
+    let totalUpdates = 0;
+    let confirmedUpdates = 0;
+
+    assignedCandidates.forEach(seeker => {
+      const seekerApps = applications.filter(app => app.seekerEmail === seeker.email);
+      totalUpdates += seekerApps.length;
+      confirmedUpdates += seekerApps.filter(app => app.seekerConfirmation === "confirmed").length;
+    });
+
+    const confirmationRate = totalUpdates === 0 ? "0%" : Math.round((confirmedUpdates / totalUpdates) * 100) + "%";
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${rec.fullName}</td>
+      <td>${rec.email}</td>
+      <td>${assignedCandidates.length}</td>
+      <td>${confirmationRate}</td>
+    `;
+
+    recruiterList.appendChild(row);
+  });
+}
+</script>
+
+</body>
+</html>
