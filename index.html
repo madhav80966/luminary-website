@@ -4,79 +4,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome | Luminary Staffing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & Base */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0b1b35;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
+    :root { --mouseX: 50px; --mouseY: 50px; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; }
 
-    /* Container */
-    .hero {
-      max-width: 500px;
-      margin: auto;
-    }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      margin-bottom: 16px;
-      color: #f5b200;
-    }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 32px;
-      line-height: 1.5;
-      color: #e0e0e0;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      font-weight: 600;
-      border-radius: 6px;
-      padding: 14px 30px;
-      margin: 8px;
-      cursor: pointer;
-      transition: background .3s, transform .2s;
-      text-decoration: none;
-    }
-    .btn-primary {
-      background: #f5b200;
+    @keyframes bgShift { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+    .welcome {
+      position: relative;
+      width: 100%; height: 100%;
+      background: linear-gradient(-45deg, #e8f6ff, #ccefff, #e0f7ff, #ffffff);
+      background-size: 400% 400%;
+      animation: bgShift 20s ease infinite;
+      display: flex; justify-content: center; align-items: center;
       color: #0b1b35;
-      border: none;
+      transition: opacity 0.6s ease;
     }
-    .btn-primary:hover {
-      background: #e0a800;
-      transform: translateY(-2px);
+    .welcome.fade-out { opacity: 0; }
+
+    .welcome::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(circle at var(--mouseX) var(--mouseY), rgba(0,255,255,0.4), transparent 20%),
+        radial-gradient(circle at calc(100% - var(--mouseX)) calc(100% - var(--mouseY)), rgba(0,200,255,0.3), transparent 30%);
+      pointer-events: none; transition: background 0.1s;
     }
+    .welcome::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: radial-gradient(#ffffff1a 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.3; pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      background: rgba(0,255,255,0.1);
+      mix-blend-mode: multiply;
+      border-radius: 50%;
+      animation: float 25s ease-in-out infinite;
+    }
+    .shape:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 15%; animation-duration: 20s; }
+    .shape:nth-child(2) { width: 200px; height: 200px; bottom: 10%; right: 20%; animation-duration: 18s; }
+    .shape:nth-child(3) { width: 400px; height: 400px; top: 50%; left: 60%; animation-duration: 30s; }
+    .shape:nth-child(4) { width: 150px; height: 150px; bottom: 30%; left: 40%; animation-duration: 22s; }
+    @keyframes float { 0%{transform:translate(0,0)rotate(0)}50%{transform:translate(20px,30px)rotate(180deg)}100%{transform:translate(0,0)rotate(360deg)} }
+
+    .card {
+      position: relative; z-index: 2;
+      background: rgba(255,255,255,0.85);
+      border-radius: 16px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      max-width: 500px; width: 90%; text-align: center;
+      transform: scale(0.95);
+      opacity: 0;
+      animation: cardEnter 1s forwards ease-out;
+    }
+    @keyframes cardEnter { to { transform: scale(1); opacity: 1; }}
+    .card h1 { font-size: 2.75rem; margin-bottom: 16px; font-weight: 600; color: #001f3f; }
+    .card p  { font-size: 1rem; margin-bottom: 30px; color: #004080; }
+
+    .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      position: relative; overflow: hidden;
+      padding: 14px 36px; font-size: 1rem; font-weight: 600;
+      border-radius: 6px; text-decoration: none; display: inline-block;
+      transition: transform 0.2s, background 0.3s;
+      z-index: 3;
+    }
+    .btn:active { transform: scale(0.95); }
+    .btn::after { content: ''; position: absolute; width: 0; height: 0; border-radius: 50%; background: rgba(0,255,255,0.4); transform: translate(-50%, -50%); opacity: 0; transition: width 0.4s ease, height 0.4s ease, opacity 0.5s; }
+    .btn:focus::after, .btn:active::after { width: 200px; height: 200px; opacity: 0.3; }
+
+    .btn-primary {
+      background: #ffffff; color: #0b1b35; border: 2px solid #f5b200;
+    }
+    .btn-primary:hover { background: #f5b200; color: #ffffff; }
+
     .btn-secondary {
-      background: transparent;
-      color: #f5b200;
-      border: 2px solid #f5b200;
+      background: transparent; color: #0b1b35; border: 2px solid #f5b200;
     }
-    .btn-secondary:hover {
-      background: rgba(245,178,0,0.1);
-      transform: translateY(-2px);
-    }
+    .btn-secondary:hover { background: rgba(245,178,0,0.1); }
+
+    @media(max-width:600px) { .card h1 { font-size:2.25rem; } .card p { font-size:0.95rem; }}
   </style>
 </head>
 <body>
-
-  <div class="hero">
-    <h1>Welcome to Luminary Staffing</h1>
-    <p>Your next career leap starts here. Outsource your job search, leverage AI‑driven strategies, and focus on nailing the interview—while we handle the heavy lifting.</p>
-    <a href="about.html" class="btn btn-primary">Take Me to Luminary</a>
-    <a href="signup.html" class="btn btn-secondary">New User</a>
+  <div class="welcome" id="welcome">
+    <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
+    <div class="card">
+      <h1>Welcome to Luminary</h1>
+      <p>Your next career milestone starts here. Choose an option below to get started.</p>
+      <div class="btn-group">
+        <a href="about.html" class="btn btn-primary" data-target="about.html">Take Me to Luminary</a>
+        <a href="signup.html" class="btn btn-secondary" data-target="signup.html">New User</a>
+      </div>
+    </div>
   </div>
-
+  <script>
+    const welcome = document.getElementById('welcome');
+    document.addEventListener('mousemove', e => {
+      document.documentElement.style.setProperty('--mouseX', e.clientX + 'px');
+      document.documentElement.style.setProperty('--mouseY', e.clientY + 'px');
+    });
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const target = btn.getAttribute('data-target');
+        welcome.classList.add('fade-out');
+        setTimeout(() => window.location.href = target, 600);
+      });
+    });
+  </script>
 </body>
 </html>
