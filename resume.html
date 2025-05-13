@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional Resume Services | Luminary Staffing</title>
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Global Styles (header, nav, footer, base) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page‑Specific Styles -->
+  <style>
+    :root { --mouseX: 50px; --mouseY: 50px; }
+
+    .page-content {
+      padding: 120px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-content::before {
+      content: '';
+      position: absolute; top:0; left:0;
+      width:100%; height:100%;
+      background: radial-gradient(circle at var(--mouseX) var(--mouseY),
+                                 rgba(245,178,0,0.1),
+                                 transparent 40%);
+      pointer-events: none;
+    }
+
+    .page-content h1 {
+      font-family: 'Playfair Display', serif;
+      color: #0b1b35;
+      font-size: 2.75rem;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .page-content p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    ul.offering-list {
+      list-style: none;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0;
+    }
+    ul.offering-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 1rem;
+      transition: background .3s;
+      border-radius: 4px;
+    }
+    ul.offering-list li:hover {
+      background: rgba(245,178,0,0.1);
+    }
+    ul.offering-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0; top: 0;
+      color: #f5b200;
+      font-weight: 700;
+    }
+
+    .why-section {
+      background: #fff;
+      padding: 60px 20px;
+      border-radius: 12px;
+      border: 2px solid #f5b200;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: 40px auto;
+      transition: transform .3s;
+    }
+    .why-section:hover { transform: translateY(-6px); }
+    .why-section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #0b1b35;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .why-section p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .build-form {
+      padding: 60px 0;
+    }
+    .build-form h2 {
+      font-family: 'Playfair Display', serif;
+      color: #0b1b35;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .form-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      border: 2px solid #f5b200;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      align-items: center;
+      position: relative;
+    }
+    .form-illustration {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .form-illustration img {
+      max-width: 500px;
+      height: auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+    .resume-form {
+      flex: 1;
+      min-width: 280px;
+    }
+    .resume-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #0b1b35;
+    }
+    .resume-form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border .3s, box-shadow .3s;
+    }
+    .resume-form input:focus {
+      border-color: #f5b200;
+      box-shadow: 0 0 6px rgba(245,178,0,0.5);
+      outline: none;
+    }
+    .resume-form button {
+      background: #0b1b35;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .3s, transform .2s, box-shadow .3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .resume-form button:hover {
+      background: #f5b200;
+      color: #0b1b35;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .btn-cta {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #0b1b35;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .3s, transform .2s, box-shadow .3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn-cta:hover {
+      background: #f5b200;
+      color: #0b1b35;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    @media(max-width: 768px) {
+      .page-content h1 { font-size: 2.25rem; }
+      .page-content p  { font-size: .95rem; }
+      .form-section    { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--—— Shared Header —→-->
+  <header data-page="resume">
+    <div class="container">
+      <div class="header-brand">
+        <div class="logo">Luminary Staffing</div>
+        <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html"      class="nav-link" data-target="about">About Us</a></li>
+          <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
+          <li><a href="resume.html"     class="nav-link" data-target="resume">Resume</a></li>
+          <li><a href="plans.html"      class="nav-link" data-target="plans">Plans</a></li>
+          <li><a href="#"               class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!--—— Page Content —→-->
+  <section class="page-content">
+    <div class="container">
+      <h1 data-aos="fade-up">Professional Resume Writing</h1>
+      <p data-aos="fade-up" data-aos-delay="100">
+        Your resume is often the very first impression you make on a hiring manager. A thoughtfully structured,
+        keyword‑optimized resume not only passes through Applicant Tracking Systems—it captures attention,
+        tells your unique story, and positions you as the prime candidate for the role.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="200">
+        At Luminary, our certified writers blend strategic industry insights with modern design to craft documents
+        that resonate. Whether you’re stepping into the workforce for the first time or pivoting mid‑career, our
+        process ensures your strengths shine through.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="300">
+        A standout resume transforms your job search—opening doors to interviews, conversations, and the offers you deserve.
+      </p>
+
+      <ul class="offering-list" data-aos="fade-up" data-aos-delay="400">
+        <li>ATS‑Compliant Formatting for seamless screening</li>
+        <li>Custom Templates matched to your industry and experience</li>
+        <li>Strategic, Metrics‑Driven Content by certified experts</li>
+        <li>Personal Branding elements (summaries, layouts, keywords)</li>
+        <li>Action‑oriented language that drives interview requests</li>
+        <li>Additional CVs, cover letters & LinkedIn profiles available</li>
+      </ul>
+
+      <div class="why-section" data-aos="fade-up" data-aos-delay="500">
+        <h2>Why Trust Luminary’s Experts?</h2>
+        <p>
+          Our elite team combines years of recruitment insider knowledge with rigorous R&amp;D to perfect a resume
+          blueprint that speaks directly to recruiters and hiring managers.
+        </p>
+        <p>
+          Beyond formatting, we weave powerful narratives, measurable achievements, and modern design so you stand out at every glance.
+        </p>
+        <p>
+          From in‑depth market analysis to personalized consultations, we’ve refined our process to give you
+          the competitive edge in any job market.
+        </p>
+      </div>
+
+      <section class="build-form" data-aos="fade-up" data-aos-delay="600">
+        <h2>Build a Perfect Resume for You, Today</h2>
+        <div style="max-width:800px; margin:0 auto;">
+          <!-- Embed your Google Form here -->
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfX8SLQXLZIXILwUmBqV-rUErWAoYrB6IUlly88ZaISbH1NCg/viewform?embedded=true"
+            width="100%"
+            height="950"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Loading…  
+          </iframe>
+        </div>
+      </section>
+      
+
+
+      <div class="cta" data-aos="fade-up" data-aos-delay="700">
+        <a href="https://forms.gle/UMjXWkydF77sLfA26"
+           target="_blank"
+           class="btn-cta">
+          Get Your Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-aos="fade-up" data-aos-delay="800">
+    <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS & Profile Logic -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Mouse‑move gradient spotlight
+    document.addEventListener('mousemove', e => {
+      document.documentElement.style.setProperty('--mouseX', e.clientX + 'px');
+      document.documentElement.style.setProperty('--mouseY', e.clientY + 'px');
+    });
+
+    // Highlight active nav item
+    const page = document.querySelector('header').dataset.page;
+    document.querySelectorAll('nav a.nav-link')
+            .forEach(a => { if(a.dataset.target === page) a.classList.add('active'); });
+
+    // Profile button logic
+    document.getElementById('nav-profile').addEventListener('click', e => {
+      e.preventDefault();
+      if (localStorage.getItem('luminary_signup')) {
+        window.location.href = 'dashboard/seeker-dashboard.html';
+      } else {
+        const goSignUp = confirm(
+          'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
+        );
+        window.location.href = goSignUp ? 'signup.html' : 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

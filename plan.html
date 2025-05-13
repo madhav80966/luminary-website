@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pricing Plans | Luminary Staffing</title>
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Global Styles (header, nav, footer, resets, etc.) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page‑Specific Styles -->
+  <style>
+    body {
+      background: #fdfaf6;
+      color: #333;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    /* spacer to push below the fixed header */
+    .spacer { height: 80px; }
+
+    /* Referral Notice */
+    .info-section {
+      padding: 20px 0;
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: center;
+    }
+    .info-section img {
+      width: 60px;
+      margin-bottom: 12px;
+    }
+    .info-section p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .info-section p strong {
+      color: #0b1b35;
+    }
+
+    /* Plans Hero */
+    .plans-hero {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .plans-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: #0b1b35;
+      margin-bottom: 10px;
+    }
+    .plans-hero p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Pricing Grid */
+    .plans-grid {
+    display: grid;
+    gap: 30px;
+    margin: 40px 0;
+    /* changed 250px → 200px so 5 cards fit in one row */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .plan-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transition: transform .3s, box-shadow .3s;
+    position: relative;
+  }
+    .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+    .plan-card.popular::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      background: #f5b200;
+      color: #0b1b35;
+      padding: 6px 12px;
+      border-radius: 0 0 8px 8px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .plan-name {
+      font-size: 1.4rem;
+      color: #0b1b35;
+      margin-bottom: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .plan-price {
+      font-size: 2rem;
+      color: #0052cc;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .plan-price span {
+      font-size: 1rem;
+      color: #555;
+      font-weight: 400;
+    }
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 25px;
+    }
+    .plan-features li {
+      margin-bottom: 12px;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.4;
+      position: relative;
+      padding-left: 24px;
+    }
+    .plan-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0; top: 0;
+      color: #f5b200;
+      font-weight: 700;
+    }
+    .btn-plan {
+      display: inline-block;  /* shrink to content */
+      padding: 12px 28px;
+      border-radius: 6px;
+      background: #0b1b35;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      transition: background .3s, color .3s;
+      margin-top: auto;       /* push to bottom */
+      margin-bottom: 0;
+    }
+    .btn-plan:hover {
+      background: #f5b200;
+      color: #0b1b35;
+    }
+
+    /* Note & Policy */
+    .note {
+      font-size: 1rem;
+      color: #444;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .note strong { color: #0b1b35; }
+    .policy {
+      background: #fff4f4;
+      border-left: 6px solid #c62828;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 800px;
+    }
+    .policy h3 {
+      font-size: 1.2rem;
+      color: #c62828;
+      margin-bottom: 10px;
+    }
+
+    @media(max-width:768px) {
+      .plans-hero h1 { font-size:2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!--—— Shared Header —→-->
+  <header data-page="plans">
+    <div class="container">
+      <div class="header-brand">
+        <div class="logo">Luminary Staffing</div>
+        <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html"       class="nav-link" data-target="about">About Us</a></li>
+          <li><a href="what-we-do.html"  class="nav-link" data-target="what-we-do">What We Do</a></li>
+          <li><a href="resume.html"      class="nav-link" data-target="resume">Resume</a></li>
+          <li><a href="plan.html"        class="nav-link active" data-target="plans">Plans</a></li>
+          <li><a href="#"                 class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="spacer"></div>
+
+  <!-- Referral Notice with SVG -->
+  <section class="info-section" data-aos="fade-up">
+    <img src="assets/images/welcome.svg" alt="Invitation Icon" />
+    <div class="container">
+      <p><strong>Notice:</strong> We are currently onboarding <em>invitation/referral only</em>. Please contact your referrer for an invitation.</p>
+    </div>
+  </section>
+
+  <!-- Plans Hero -->
+  <section class="plans-hero" data-aos="fade-up">
+    <h1>Choose Your Plan</h1>
+    <p>Select a subscription tailored to your needs and start building momentum in your career today.</p>
+  </section>
+
+  <!-- Pricing Grid -->
+  <div class="plans-grid container">
+    <div class="plan-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="plan-name">Starter Plan</div>
+      <div class="plan-price">$199<span>/mo</span></div>
+      <ul class="plan-features">
+        <li>600 Job Applications</li>
+        <li>Resume & LinkedIn Review</li>
+        <li>Email Support</li>
+      </ul>
+      <a href="https://forms.gle/UMjXWkydF77sLfA26" target="_blank" class="btn-plan">Select Starter</a>
+    </div>
+
+    <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="plan-name">Accelerator Plan</div>
+      <div class="plan-price">$279<span>/mo</span></div>
+      <ul class="plan-features">
+        <li>1,000 Job Applications</li>
+        <li>Priority Resume Optimization</li>
+        <li>Weekly Progress Calls</li>
+      </ul>
+      <a href="https://forms.gle/UMjXWkydF77sLfA26" target="_blank" class="btn-plan">Select Accelerator</a>
+    </div>
+
+    <div class="plan-card popular" data-aos="fade-up" data-aos-delay="300">
+      <div class="plan-name">Pro Launch Plan</div>
+      <div class="plan-price">$349<span>/mo</span></div>
+      <ul class="plan-features">
+        <li>1,500 Job Applications</li>
+        <li>Interview Coaching</li>
+        <li>24/7 Chat Support</li>
+      </ul>
+      <a href="https://forms.gle/UMjXWkydF77sLfA26" target="_blank" class="btn-plan">Select Pro Launch</a>
+    </div>
+
+    <div class="plan-card" data-aos="fade-up" data-aos-delay="400">
+      <div class="plan-name">Ultimate Success Plan</div>
+      <div class="plan-price">$429<span>/mo</span></div>
+      <ul class="plan-features">
+        <li>2,000 Job Applications</li>
+        <li>Dedicated Account Manager</li>
+        <li>Offer Negotiation Assistance</li>
+      </ul>
+      <a href="https://forms.gle/UMjXWkydF77sLfA26" target="_blank" class="btn-plan">Select Ultimate</a>
+    </div>
+
+    <div class="plan-card" data-aos="fade-up" data-aos-delay="500">
+      <div class="plan-name"><strong>Aggressive Custom Plan</strong></div>
+      <a href="https://forms.gle/UMjXWkydF77sLfA26" target="_blank" class="btn-plan">Discuss & Apply</a>
+    </div>
+  </div>
+
+  <!-- Note & Policy -->
+  <div class="note" data-aos="fade-up" data-aos-delay="600">
+    <p><strong>Complete onboarding within 24 hours</strong> to qualify for an <strong>Early‑Bird Discount—10% off your first month.</strong></p>
+    <p>Slots fill quickly; delays may result in a waiting queue and slower start to your job search.</p>
+  </div>
+
+  <div class="policy" data-aos="fade-up" data-aos-delay="700">
+    <h3>Limited Enrollment</h3>
+    <p>To maintain quality, we cap active candidates each month. Missing the 24‑hour onboarding window may delay your placement.</p>
+    <p><strong>Act fast to secure your spot and kick off your momentum!</strong></p>
+  </div>
+
+  <!-- Footer -->
+  <footer data-aos="fade-up" data-aos-delay="800">
+    <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS & Profile Logic -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Highlight active nav item
+    const page = document.querySelector('header').dataset.page;
+    document.querySelectorAll('nav .nav-link')
+      .forEach(a => { if (a.dataset.target === page) a.classList.add('active'); });
+
+    // Profile button logic
+    document.getElementById('nav-profile').addEventListener('click', e => {
+      e.preventDefault();
+      if (localStorage.getItem('luminary_signup')) {
+        window.location.href = 'dashboard/seeker-dashboard.html';
+      } else {
+        const goSignUp = confirm(
+          'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
+        );
+        window.location.href = goSignUp ? 'signup.html' : 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

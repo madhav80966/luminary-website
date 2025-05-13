@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | Luminary Staffing</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <style>
+    /* Base */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;background:#fdfaf6;color:#333;overflow-x:hidden}
+    a{text-decoration:none}
+    .container{width:90%;max-width:1200px;margin:auto}
+
+    /* Header */
+    header{background:#0b1b35;color:#fff;padding:20px 0;position:fixed;width:100%;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+    header .container{display:flex;justify-content:space-between;align-items:center}
+    .logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:#f5b200}
+    nav ul{list-style:none;display:flex;gap:24px}
+    nav a{color:#fff;font-weight:500;transition:color .3s}
+    nav a:hover{color:#f5b200}
+
+    /* Hero */
+    .hero{padding:160px 20px 160px;text-align:center;background:linear-gradient(135deg,#0b1b35,#122848);color:#fff;position:relative;transition:opacity .6s}
+    .hero-content{max-width:800px;margin:0 auto 40px;position:relative;z-index:1}
+    svg.hero-wave{position:absolute;bottom:0;left:0;width:100%;height:auto}
+    .hero h1{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:20px;color:#f5b200;position:relative;z-index:1}
+    .hero p{font-size:1.2rem;max-width:700px;margin:0 auto;color:#e0e0e0;position:relative;z-index:1;line-height:1.5}
+    .btn-group{margin-top:30px;position:relative;z-index:1}
+    .btn{padding:14px 30px;border-radius:6px;font-weight:600;display:inline-block;transition:background .3s,transform .2s;cursor:pointer}
+    .btn-primary{background:#f5b200;color:#0b1b35;border:none}
+    .btn-primary:hover{background:#e0a800}
+    .btn-secondary{background:transparent;color:#f5b200;border:2px solid #f5b200;margin-left:16px}
+    .btn-secondary:hover{background:rgba(245,178,0,0.1)}
+
+    /* Features */
+    .features{padding:80px 20px;margin-top:-50px;position:relative;z-index:2;background:#fdfaf6}
+    .features h2{text-align:center;font-size:2rem;color:#0b1b35;margin-bottom:40px}
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;max-width:1100px;margin:auto}
+    .feature-card{background:#fff;border-radius:12px;padding:30px;box-shadow:0 5px 12px rgba(0,0,0,0.05);transition:transform .3s,box-shadow .3s}
+    .feature-card:hover{transform:translateY(-5px);box-shadow:0 12px 24px rgba(0,0,0,0.1)}
+    .feature-card h3{font-size:1.3rem;color:#0b1b35;margin-bottom:15px}
+    .feature-card p{font-size:1rem;color:#555;line-height:1.6}
+
+    /* Statistics */
+    .stats{background:#eaf3fa;padding:60px 20px}
+    .stats h2{text-align:center;font-size:2rem;color:#0b1b35;margin-bottom:30px}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:800px;margin:0 auto}
+    .stat-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:transform .3s;}
+    .stat-card:hover{transform:translateY(-4px)}
+    .stat-card h3{font-size:2rem;color:#0052cc;margin-bottom:8px}
+    .stat-card p{font-size:1rem;color:#444}
+
+    /* Logo Marquee Strip */
+    .marquee{overflow:hidden;position:relative;background:#fff;padding:20px 0;border-top:2px solid #f5b200;border-bottom:2px solid #f5b200;margin:40px 0}
+    .marquee-track{display:flex;gap:50px;align-items:center;white-space:nowrap;animation:scroll-left 8s linear infinite}
+    .marquee-track img{height:60px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2))}
+    @keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Testimonials Carousel */
+    .testimonials{padding:60px 20px;background:#fdfaf6;position:relative}
+    .testimonials h2{text-align:center;font-size:2rem;color:#0b1b35;margin-bottom:30px}
+    .testimonials-wrapper{overflow:hidden;max-width:1000px;margin:0 auto;position:relative}
+    .testimonial-track{display:flex;gap:30px;animation:scroll 30s linear infinite}
+    .testimonial-track.paused{animation-play-state:paused}
+    .testimonial-card{flex:0 0 280px;background:#fff;border-left:4px solid #f5b200;border-radius:6px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+    .testimonial-card p{font-style:italic;color:#555;margin-bottom:10px}
+    .testimonial-card h4{font-size:1rem;color:#0b1b35;text-align:right}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(calc(-280px * 5))}}
+
+    /* Dots */
+    .dots{display:flex;justify-content:center;gap:10px;margin-top:20px}
+    .dot{width:12px;height:12px;border-radius:50%;background:#ccc;cursor:pointer;transition:background .3s}
+    .dot.active{background:#0b1b35}
+
+    /* Call to Action */
+    .cta{background:linear-gradient(135deg,#f5b200,#ffda7b);padding:60px 20px;text-align:center;color:#0b1b35}
+    .cta h2{font-size:2rem;margin-bottom:20px}
+
+    /* Footer */
+    footer{background:#0b1b35;color:#fff;text-align:center;padding:20px 0;font-size:.9rem;margin-top:40px}
+
+    /* AOS */
+    [data-aos]{opacity:0;transform:translateY(20px)}
+    [data-aos].aos-animate{opacity:1;transform:translateY(0)}
+
+    @media(max-width:768px){.hero h1{font-size:2.5rem}.cta h2{font-size:1.5rem}}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">Luminary Staffing</div>
+      <nav>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="plans.html">Plans</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact-us.html">Contact</a></li>
+          <li><a href="#" id="nav-login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" data-aos="fade-up">
+    <div class="hero-content">
+      <h1>Where Ambition Meets Precision</h1>
+      <p>We drive your job search with strategy, momentum, and a personalized touch—while you focus on your next interview.</p>
+      <div class="btn-group">
+        <a href="how-it-works.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">See How We Work</a>
+        <a href="plans.html" class="btn btn-secondary" data-aos="fade-up" data-aos-delay="400">View Plans</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 320"><path fill="#fdfaf6" d="M0,320L60,288C120,256,240,192,360,165.3C480,139,600,149,720,165.3C840,181,960,203,1080,202.7C1200,203,1320,181,1380,170.7L1440,160L1440,320L0,320Z"></path></svg>
+  </section>
+
+  <!-- Features -->
+  <section class="features" data-aos="fade-up">
+    <h2>Why Choose Luminary?</h2>
+    <div class="feature-grid">
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Tailored Strategy</h3>
+        <p>Every action is customized to your career goals, ensuring targeted applications and meaningful connections.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>High-Volume Execution</h3>
+        <p>Our silent momentum approach submits hundreds of roles monthly, maximizing your visibility seamlessly.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Interview Support</h3>
+        <p>Mock interviews, personalized feedback, and insider tips keep you confident and prepared for every call.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>Offer Optimization</h3>
+        <p>We guide negotiation and follow-up to help you secure the best compensation and role fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section class="stats" data-aos="fade-up">
+    <h2>By the Numbers</h2>
+    <div class="stats-grid">
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>2500+</h3>
+        <p>Jobs Applied Monthly</p>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>4.9★</h3>
+        <p>Average Client Rating</p>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>99%</h3>
+        <p>Interview Success Rate</p>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>76+</h3>
+        <p>Candidates Served (5/25)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Marquee Strip -->
+  <section class="marquee" data-aos="fade-up">
+    <div class="marquee-track">
+      <img src="assets/logos/logo1.svg" alt="Client Logo">
+      <img src="assets/logos/logo2.svg" alt="Client Logo">
+      <img src="assets/logos/logo3.svg" alt="Client Logo">
+      <img src="assets/logos/logo4.svg" alt="Client Logo">
+      <img src="assets/logos/logo5.svg" alt="Client Logo">
+      <img src="assets/logos/logo6.svg" alt="Client Logo">
+      <img src="assets/logos/logo7.svg" alt="Client Logo">
+      <img src="assets/logos/logo8.svg" alt="Client Logo">
+      <img src="assets/logos/logo9.svg" alt="Client Logo">
+      <img src="assets/logos/logo10.svg" alt="Client Logo">
+
+        <img src="assets/images/logo-goldman.png" alt="Goldman Sachs" />
+      </div>
+    </div>
+    
+    <footer data-aos="fade-up" data-aos-delay="1000">
+      <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    document.addEventListener('mousemove', e => {
+      document.documentElement.style.setProperty('--mouseX', e.clientX + 'px');
+      document.documentElement.style.setProperty('--mouseY', e.clientY + 'px');
+    });
+  </script>
+</body>
+</html>

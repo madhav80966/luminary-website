@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Luminary Staffing</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fcf8f1;
+      color: #333;
+    }
+    header {
+      background-color: #0b1b35;
+      padding: 20px 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #f5b200;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00d8ff;
+    }
+
+    .page-content {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .page-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      color: #0b1b35;
+      margin-bottom: 20px;
+    }
+    .page-content p {
+      max-width: 600px;
+      margin: 0 auto 60px;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .contact-card {
+      background: #ffffff;
+      border: 3px solid #f0e6c3;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .contact-card:hover {
+      border-color: #f0c040;
+      transform: translateY(-4px);
+    }
+    .contact-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #0b1b35;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .submit-btn {
+      background-color: #0b1b35;
+      color: white;
+      padding: 12px 0;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: background-color 0.3s ease;
+    }
+    .submit-btn:hover {
+      background-color: #f5b200;
+      color: #0b1b35;
+    }
+
+    footer {
+      background: #0b1b35;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .contact-card { padding: 30px; }
+      .page-content { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Luminary Staffing</div>
+      <nav>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="plans.html">Plans</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="signup.html">Get Started</a></li>
+          <li><a href="contact-us.html" id="nav-contact">Contact Us</a></li>
+          <li><a href="login.html" id="nav-login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <h1 data-aos="fade-down">Contact Us</h1>
+    <p data-aos="fade-up">Whether you’re looking for a new opportunity or exceptional talent, we’re here to help. Fill out the form that best describes your needs, and we’ll respond within 24 hours.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card" data-aos="fade-right">
+        <h2>Looking for a Job?</h2>
+        <form id="jobForm">
+          <label for="js-name">Full Name</label>
+          <input type="text" id="js-name" name="js-name" placeholder="Your full name" required />
+
+          <label for="js-email">Email Address</label>
+          <input type="email" id="js-email" name="js-email" placeholder="you@example.com" required />
+
+          <label for="js-domain">Domain / Field</label>
+          <input type="text" id="js-domain" name="js-domain" placeholder="e.g. Software Development" required />
+
+          <label for="js-auth">Work Authorization</label>
+          <input type="text" id="js-auth" name="js-auth" placeholder="e.g. OPT, H1B, GC EAD" required />
+
+          <label for="js-message">Message</label>
+          <textarea id="js-message" name="js-message" rows="4" placeholder="Tell us about your goals..."></textarea>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+
+      <div class="contact-card" data-aos="fade-left">
+        <h2>Looking for Exceptional Talent?</h2>
+        <form id="employerForm">
+          <label for="er-org">Organization Name</label>
+          <input type="text" id="er-org" name="er-org" placeholder="Your organization" required />
+
+          <label for="er-email">Organization Email</label>
+          <input type="email" id="er-email" name="er-email" placeholder="contact@org.com" required />
+
+          <label for="er-service">Service Required</label>
+          <select id="er-service" name="er-service" required>
+            <option value="">Select a service</option>
+            <option>Temporary Staffing</option>
+            <option>Permanent Staffing</option>
+            <option>Contract Staffing</option>
+            <option>Employee Development Programs</option>
+            <option>Workforce Analytics</option>
+            <option>Staff Assessment / Augmentation</option>
+          </select>
+
+          <label for="er-details">Additional Details</label>
+          <textarea id="er-details" name="er-details" rows="4" placeholder="Tell us more..."></textarea>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Luminary Staffing. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    const storedUser = localStorage.getItem('luminary_signup');
+    if (storedUser) {
+      const navLogin = document.getElementById('nav-login');
+      navLogin.innerText = 'Profile';
+      navLogin.href = 'dashboard/seeker-dashboard.html';
+    }
+  </script>
+</body>
+</html>

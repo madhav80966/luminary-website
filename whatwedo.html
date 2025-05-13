@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What We Do | Luminary Staffing</title>
+
+  <!-- Global styles & AOS animations -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Page spacing to match How It Works */
+    .page-content { padding: 60px 0; }
+    .container    { width: 90%; max-width: 1100px; margin: auto; }
+
+    /* Grid setup identical to How It Works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    /* Exact same card sizing, border & shadows as How It Works */
+    .step-card {
+      background: #fff;
+      padding: 25px;                       /* Matches How It Works */ 
+      border-radius: 12px;
+      border: 1.5px solid #f0e6c3;         /* Soft gold border */ 
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+
+    /* Icon sizing to mirror your designs */
+    .step-card img {
+      width: 80px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .step-card h2 {
+      font-size: 1.3rem;                   /* Matches How It Works */ 
+      margin-bottom: 10px;
+      color: #001f3f;
+      transition: color 0.3s ease;
+    }
+    .step-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .step-card:hover {
+      border-color: #f0c040;               /* Stronger gold on hover */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-6px) scale(1.015);
+    }
+    .step-card:hover h2 {
+      color: #0b1b35;
+    }
+  </style>
+</head>
+<body>
+
+  <header data-page="about">  <!-- change "about" to "what-we-do", "resume", "plans", or "profile" per page -->
+    <div class="container">
+      <div class="header-brand">
+        <div class="logo">Luminary Staffing</div>
+        <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html" class="nav-link" data-target="about">About Us</a></li>
+          <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
+          <li><a href="resume.html" class="nav-link" data-target="resume">Resume</a></li>
+          <li><a href="plan.html" class="nav-link" data-target="plans">Plans</a></li>
+          <li><a href="#"        class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="page-content">
+    <div class="container">
+      <h1>What We Do</h1>
+      <p>We offer powerful, personalized services to help you launch or accelerate your career journey — backed by real strategy, real effort, and real results.</p>
+
+      <div class="steps">
+        <div class="step-card" data-aos="fade-up">
+          <img src="assets/images/resume.svg" alt="Resume Building" />
+          <h2>Resume Building</h2>
+          <p>We craft tailored, keyword‑optimized resumes that showcase your strengths and speak directly to what recruiters look for.</p>
+        </div>
+
+        <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/images/marketing.svg" alt="Strategic Job Marketing" />
+          <h2>Strategic Job Marketing</h2>
+          <p>Our recruiters apply to hundreds of hand‑picked roles monthly on your behalf—aligned with your goals, title, location, and experience level.</p>
+        </div>
+
+        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/images/interview.svg" alt="Interview Guidance" />
+          <h2>Interview Guidance</h2>
+          <p>Mock interviews, prep resources, and insider tips help you show up confident and prepared every single time you interview.</p>
+        </div>
+
+        <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="assets/images/offer.svg" alt="Offer Letter Success" />
+          <h2>Offer Letter Success</h2>
+          <p>We don’t stop until you secure the role and salary you deserve—through momentum, follow‑up, and strategic positioning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Luminary Staffing. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    const storedUser = localStorage.getItem('luminary_signup');
+    if (storedUser) {
+      const navLogin = document.getElementById('nav-login');
+      navLogin.innerText = 'Profile';
+      navLogin.href = 'dashboard/seeker-dashboard.html';
+    }
+  </script>
+<script>
+  // 1️⃣ Highlight the current page link
+  const header = document.querySelector('header[data-page]');
+  const current = header.getAttribute('data-page');
+  document.querySelectorAll('.nav-link').forEach(a => {
+    if (a.dataset.target === current) a.classList.add('active');
+  });
+
+  // 2️⃣ Profile button logic
+  document.getElementById('nav-profile').addEventListener('click', e => {
+    e.preventDefault();
+    const signedIn = !!localStorage.getItem('luminary_signup');
+    if (signedIn) {
+      // Already signed in → dashboard
+      window.location.href = 'dashboard/seeker-dashboard.html';
+    } else {
+      // Not signed in → prompt for Sign‑Up or Login
+      const goSignUp = confirm(
+        'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
+      );
+      window.location.href = goSignUp ? 'signup.html' : 'login.html';
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

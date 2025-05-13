@@ -4,177 +4,214 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get Started | Luminary Staffing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Global header/footer/nav, resets, etc. -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page‑specific styles -->
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
       background: #fdfaf6;
       color: #333;
-    }
-    header {
-      background-color: #0b1b35;
-      padding: 20px 0;
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      padding-top: 80px; /* for fixed header */
     }
     .container {
       width: 90%;
       max-width: 1200px;
       margin: auto;
+    }
+    .get-started {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 40px;
+      margin: 40px 0;
+      flex-wrap: wrap;
     }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #f5b200;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .form-section {
-      max-width: 600px;
-      margin: 60px auto;
-      background: white;
-      padding: 40px;
+    .panel {
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      padding: 30px;
+      flex: 1;
+      min-width: 300px;
     }
-    h2 {
-      color: #0b1b35;
+    .panel.contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
+      border: 2px solid #f5b200;
+    }
+    .panel.contact h2 {
+      font-family: 'Playfair Display', serif;
+      color: #0b1b35;
+      margin-bottom: 20px;
+    }
+    .panel.contact p {
       margin-bottom: 30px;
+      color: #555;
+      line-height: 1.6;
     }
-    label {
-      display: block;
-      margin-bottom: 8px;
+    .btn-contact {
+      display: inline-block;
+      background: #0b1b35;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 6px;
       font-weight: 600;
+      text-decoration: none;
+      transition: background .3s, transform .2s;
     }
-    input, select {
+    .btn-contact:hover {
+      background: #f5b200;
+      color: #0b1b35;
+      transform: translateY(-2px);
+    }
+
+    .panel.signup h2 {
+      font-family: 'Playfair Display', serif;
+      color: #0b1b35;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .signup-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #0b1b35;
+    }
+    .signup-form input {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
+      transition: border .3s;
     }
-    .form-type {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 30px;
+    .signup-form input:focus {
+      border-color: #f5b200;
+      outline: none;
+      box-shadow: 0 0 6px rgba(245,178,0,0.5);
     }
-    .form-type button {
-      padding: 10px 25px;
-      font-weight: 600;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background-color: #0b1b35;
-      color: white;
-    }
-    .form-type button.active {
-      background-color: #f5b200;
-      color: #0b1b35;
-    }
-    .submit-btn {
-      background-color: #0b1b35;
-      color: white;
-      padding: 12px 25px;
+    .signup-form button {
+      width: 100%;
+      background: #0b1b35;
+      color: #fff;
+      padding: 12px;
       border: none;
       border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
+      transition: background .3s, transform .2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .submit-btn:hover {
-      background-color: #f5b200;
+    .signup-form button:hover {
+      background: #f5b200;
       color: #0b1b35;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    @media(max-width:768px) {
+      .get-started { flex-direction: column; }
     }
   </style>
 </head>
+
 <body>
-  <header>
+
+  <!-- Shared header/nav -->
+  <header data-page="profile">
     <div class="container">
-      <div class="logo">Luminary Staffing</div>
+      <div class="header-brand">
+        <div class="logo">Luminary Staffing</div>
+        <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
+      </div>
       <nav>
         <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="how-it-works.html">How It Works</a></li>
-          <li><a href="plans.html">Plans</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="about.html"      class="nav-link" data-target="about">About Us</a></li>
+          <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
+          <li><a href="resume.html"     class="nav-link" data-target="resume">Resume</a></li>
+          <li><a href="plan.html"       class="nav-link" data-target="plans">Plans</a></li>
+          <li><a href="#"               class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="form-section">
-    <h2>Get Started</h2>
+  <div class="container">
+    <div class="get-started">
 
-    <div class="form-type">
-      <button id="existingBtn" class="active">Already Enrolled</button>
-      <button id="newBtn">Want to Know More</button>
+      <!-- Panel 1: Contact Us -->
+      <div class="panel contact" data-aos="fade-up">
+        <h2>Have Questions?</h2>
+        <p>Not quite ready to enroll or you need more information?<br/>Our team is here to help you every step of the way.</p>
+        <a href="contactus.html" class="btn-contact">Contact Us</a>
+      </div>
+
+      <!-- Panel 2: Sign‑Up Form -->
+      <div class="panel signup" data-aos="fade-up" data-aos-delay="200">
+        <h2>Create Your Account</h2>
+        <form class="signup-form" action="signup-handler.html" method="POST" enctype="multipart/form-data">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" required />
+
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Your last name" required />
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+          <label for="whatsapp">WhatsApp Number</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1 123-456-7890" required />
+
+          <label for="auth">Current Work Authorization</label>
+          <input type="text" id="auth" name="workAuth" placeholder="e.g. CPT, OPT, STEM-OPT, H1B, GC EAD" required />
+
+          <label for="resumeFile">Upload Your Current Resume</label>
+          <input type="file" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx" required />
+
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+
     </div>
-
-    <form id="existingForm">
-      <label for="candidateID">Candidate ID</label>
-      <input type="text" id="candidateID" placeholder="Enter your Candidate ID" required />
-
-      <button type="submit" class="submit-btn">Continue</button>
-    </form>
-
-    <form id="newForm" style="display: none;">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" placeholder="Your Name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="you@example.com" required />
-
-      <label for="whatsapp">WhatsApp Number</label>
-      <input type="text" id="whatsapp" placeholder="e.g. +1 123-456-7890" required />
-
-      <label for="auth">Current Work Authorization</label>
-      <input type="text" id="auth" placeholder="e.g. OPT, H1B, GC EAD" required />
-
-      <label for="city">City</label>
-      <input type="text" id="city" required />
-
-      <label for="state">State</label>
-      <input type="text" id="state" required />
-
-      <label for="jobtitle">Desired Job Title</label>
-      <input type="text" id="jobtitle" placeholder="e.g. Data Analyst, Developer" required />
-
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
   </div>
 
-  <script>
-    const existingBtn = document.getElementById('existingBtn');
-    const newBtn = document.getElementById('newBtn');
-    const existingForm = document.getElementById('existingForm');
-    const newForm = document.getElementById('newForm');
+  <!-- Footer -->
+  <footer data-aos="fade-up" data-aos-delay="300">
+    <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
+  </footer>
 
-    existingBtn.addEventListener('click', () => {
-      existingBtn.classList.add('active');
-      newBtn.classList.remove('active');
-      existingForm.style.display = 'block';
-      newForm.style.display = 'none';
+  <!-- AOS & Profile Logic -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration:600, once:true });
+
+    // Highlight the Profile nav item
+    document.querySelectorAll('nav .nav-link').forEach(a => {
+      if (a.dataset.target === document.querySelector('header').dataset.page) {
+        a.classList.add('active');
+      }
     });
 
-    newBtn.addEventListener('click', () => {
-      newBtn.classList.add('active');
-      existingBtn.classList.remove('active');
-      newForm.style.display = 'block';
-      existingForm.style.display = 'none';
+    // Profile button logic (if someone clicks Profile in nav)
+    document.getElementById('nav-profile').addEventListener('click', e => {
+      e.preventDefault();
+      if (localStorage.getItem('luminary_signup')) {
+        window.location.href = 'dashboard/seeker-dashboard.html';
+      } else {
+        const goSignUp = confirm(
+          'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
+        );
+        window.location.href = goSignUp ? 'signup.html' : 'login.html';
+      }
     });
   </script>
 </body>

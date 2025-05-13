@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What We Do | Luminary Staffing</title>
+
+  <!-- Global styles & AOS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- header with data-page -->
+  <header data-page="what-we-do">
+    <div class="container">
+      <div class="header-brand">
+        <div class="logo">Luminary Staffing</div>
+        <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html"      class="nav-link" data-target="about">About Us</a></li>
+          <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
+          <li><a href="resume.html"     class="nav-link" data-target="resume">Resume</a></li>
+          <li><a href="plans.html"      class="nav-link" data-target="plans">Plans</a></li>
+          <li><a href="#"               class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- page content -->
+  <section class="page-content">
+    <div class="container">
+      <h1>What We Do</h1>
+      <p>We offer powerful, personalized services to help you launch or accelerate your career journey — backed by real strategy, real effort, and real results.</p>
+
+      <div class="steps">
+        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/images/dive.svg" alt="Comprehensive Profile Deep Dive" />
+          <h2>Comprehensive Profile Deep Dive</h2>
+          <p>We understand your goals, experience, and aspirations in depth—no templates, no one‑size‑fits‑all approach.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up">
+          <img src="assets/images/resume.svg" alt="Resume Building" />
+          <h2>Resume Building</h2>
+          <p>We craft keyword‑optimized, ATS‑compliant resumes that highlight your strengths and get you noticed.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/images/marketing.svg" alt="Strategic Job Marketing" />
+          <h2>Strategic Job Marketing</h2>
+          <p>Our recruiters submit hundreds of targeted applications monthly—matching you with your ideal roles.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="assets/images/interview.svg" alt="Interview Guidance" />
+          <h2>Interview Guidance</h2>
+          <p>Mock interviews, tailored feedback, and insider tips ensure you shine in every conversation.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+          <img src="assets/images/offer.svg" alt="Offer Letter Success" />
+          <h2>Offer Letter Success</h2>
+          <p>We negotiate on your behalf to secure the compensation and role you deserve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Luminary Staffing. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Highlight active nav link
+    const page = document.querySelector('header').dataset.page;
+    document.querySelectorAll('nav a.nav-link').forEach(a => {
+      if (a.dataset.target === page) a.classList.add('active');
+    });
+
+    // Profile button logic
+    document.getElementById('nav-profile').addEventListener('click', e => {
+      e.preventDefault();
+      if (localStorage.getItem('luminary_signup')) {
+        window.location.href = 'dashboard/seeker-dashboard.html';
+      } else {
+        const goSignUp = confirm(
+          'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
+        );
+        window.location.href = goSignUp ? 'signup.html' : 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>
