@@ -1,0 +1,11 @@
+# macOS metadata
+.DS_Store
+
+# Node modules (if any)
+node_modules/
+
+# Log files
+*.log
+
+# OS junk
+Thumbs.db
