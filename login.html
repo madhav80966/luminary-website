@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Login | Luminary Staffing</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     body { margin: 0; font-family: 'Poppins', sans-serif; background: #fdfaf6; color: #333; }
     header { background-color: #0b1b35; padding: 20px 0; }
@@ -91,7 +90,6 @@
           Remember Me
         </label>
       </div>
-      <div class="g-recaptcha" data-sitekey="6LcB-zsrAAAAAAqV8mMrSVYI6TL3yjyRKjf0wia1"></div>
       <button type="submit" id="loginBtn">Login</button> 
 
       <span class="error-message" id="errorMsg"></span>
@@ -101,6 +99,46 @@
   </div>
   <footer>© 2025 Luminary Staffing — Your Success, Our Mission</footer>
   <script>
+    // Hardcoded users array
+    const users = [
+      {
+        email: "pulagammohanvikasreddy@gmail.com",
+        phone: "6824087401",
+        dob: "19061999",
+        role: "seeker",
+        name: "Mohan",
+        assigned_recruiter: "Nikhil",
+        plan: "Accelerator",
+        badges: "EarlyBird"
+      },
+      {
+        email: "leelamadhav99@gmail.com",
+        phone: "8176308511",
+        dob: "15051999",
+        role: "seeker",
+        name: "Madhav",
+        assigned_recruiter: "Nikhil",
+        plan: "starter",
+        badges: "Referred"
+      },
+      {
+        email: "info@luminarystaffing.com",
+        phone: "860880",
+        dob: "15051999",
+        role: "recruiter",
+        name: "Nikhil",
+        assigned_recruiter: "Nikhil"
+      },
+      {
+        email: "info@luminarystaffing.com",
+        phone: "860880",
+        dob: "30072000",
+        role: "admin",
+        name: "Keerti",
+        assigned_recruiter: "Nikhil"
+      }
+    ];
+
     window.onload = function() {
       let remembered = localStorage.getItem('luminary_login');
       if (remembered) document.getElementById('emailPhone').value = remembered;
@@ -118,75 +156,29 @@
       window.location.href = `mailto:info@luminarystaffing.com?subject=Forgot%20Login%20Details&body=${body}`;
     });
 
-    // LOGIN FORM SUBMISSION HANDLER
-    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    // LOGIN FORM SUBMISSION HANDLER (hardcoded check)
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       document.getElementById('errorMsg').style.display = 'none';
-      const emailPhone = document.getElementById('emailPhone').value.trim();
+      const emailPhone = document.getElementById('emailPhone').value.trim().toLowerCase();
       const dob = document.getElementById('dobNum').value.trim();
 
-      // Validation for 8-digit DOB
-      if (!/^\d{8}$/.test(dob)) {
-        document.getElementById('errorMsg').style.display = 'block';
-        document.getElementById('errorMsg').textContent = 'Please enter your DOB in DDMMYYYY format.';
-        return;
-      }
+      // Check against users array
+      const user = users.find(u =>
+        (u.email === emailPhone || u.phone === emailPhone) && u.dob === dob
+      );
 
-      // reCAPTCHA check (if enabled)
-      if (typeof grecaptcha !== 'undefined') {
-        const response = grecaptcha.getResponse();
-        if (!response) {
-          document.getElementById('errorMsg').style.display = 'block';
-          document.getElementById('errorMsg').textContent = 'Please verify you are not a robot.';
-          return;
-        }
-      }
-
-      document.getElementById('loginBtn').textContent = 'Logging in...';
-
-      try {
-        // Updated to your current working web app URL
-        const WEBAPP_URL = "https://script.google.com/macros/s/AKfycby9Mqkr0elCKONuqP-aQdN1kN5rCNlWxhmoCERFXw_ph43PUW3aZhO9PNBowhFwvMbJwg/exec";
-        const response = await fetch(WEBAPP_URL, {
-          method: 'POST',
-          body: JSON.stringify({ emailPhone, dob }),
-          headers: { 'Content-Type': 'application/json' }
-        });
-        // Debug: log response
-        console.log("Raw fetch response:", response);
-        let result = {};
-        try {
-          result = await response.json();
-        } catch (parseErr) {
-          document.getElementById('errorMsg').style.display = 'block';
-          document.getElementById('errorMsg').textContent = 'Server error or invalid server response.';
-          console.error("Error parsing JSON response:", parseErr);
-          return;
-        }
-        document.getElementById('loginBtn').textContent = 'Login';
-        // Debug: log result
-        console.log("Server response:", result);
-
-        if (result.status === 'success') {
-          if (document.getElementById('rememberMe').checked) {
-            localStorage.setItem('luminary_login', emailPhone);
-          } else {
-            localStorage.removeItem('luminary_login');
-          }
-          localStorage.setItem('luminary_user', JSON.stringify(result.user));
-          window.location.href = 'profile.html';
+      if (user) {
+        if (document.getElementById('rememberMe').checked) {
+          localStorage.setItem('luminary_login', emailPhone);
         } else {
-          document.getElementById('errorMsg').style.display = 'block';
-          document.getElementById('errorMsg').textContent =
-            (result && result.message) ?
-            result.message :
-            'Incorrect details. Please check and try again.';
+          localStorage.removeItem('luminary_login');
         }
-      } catch (err) {
-        document.getElementById('loginBtn').textContent = 'Login';
+        localStorage.setItem('luminary_user', JSON.stringify(user));
+        window.location.href = 'profile.html';
+      } else {
         document.getElementById('errorMsg').style.display = 'block';
-        document.getElementById('errorMsg').textContent = 'Unable to connect. Please try again later.';
-        console.error("Fetch/network error:", err);
+        document.getElementById('errorMsg').textContent = 'Incorrect details. Please check and try again.';
       }
     });
   </script>
