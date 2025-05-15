@@ -3,83 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login | Luminary Staffing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Get Started | Luminary Staffing</title>
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Global header/footer/nav, resets, etc. -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page‑specific styles -->
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
       background: #fdfaf6;
       color: #333;
-    }
-    header {
-      background-color: #0b1b35;
-      padding: 20px 0;
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      padding-top: 80px; /* for fixed header */
     }
     .container {
       width: 90%;
       max-width: 1200px;
       margin: auto;
+    }
+    .get-started {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 40px;
+      margin: 40px 0;
+      flex-wrap: wrap;
     }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #f5b200;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .form-wrapper {
-      max-width: 500px;
-      margin: 60px auto;
-      background: white;
-      padding: 40px;
+    .panel {
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      padding: 30px;
+      flex: 1;
+      min-width: 300px;
     }
-    h2 {
+    .panel.contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
-      color: #0b1b35;
-      margin-bottom: 30px;
+      border: 2px solid #f5b200;
     }
-    input {
+    .panel.contact h2 {
+      font-family: 'Playfair Display', serif;
+      color: #0b1b35;
+      margin-bottom: 20px;
+    }
+    .panel.contact p {
+      margin-bottom: 30px;
+      color: #555;
+      line-height: 1.6;
+    }
+    .btn-contact {
+      display: inline-block;
+      background: #0b1b35;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .3s, transform .2s;
+    }
+    .btn-contact:hover {
+      background: #f5b200;
+      color: #0b1b35;
+      transform: translateY(-2px);
+    }
+
+    .panel.signup h2 {
+      font-family: 'Playfair Display', serif;
+      color: #0b1b35;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .signup-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #0b1b35;
+    }
+    .signup-form input {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
+      transition: border .3s;
     }
-    button {
+    .signup-form input:focus {
+      border-color: #f5b200;
+      outline: none;
+      box-shadow: 0 0 6px rgba(245,178,0,0.5);
+    }
+    .signup-form button {
       width: 100%;
-      padding: 12px;
       background: #0b1b35;
-      color: white;
+      color: #fff;
+      padding: 12px;
       border: none;
       border-radius: 6px;
-      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
+      transition: background .3s, transform .2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    button:hover {
+    .signup-form button:hover {
       background: #f5b200;
       color: #0b1b35;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 600px) {
+  .panel.contact img {
+    height: 80px !important;
+  }
+}
+    @media(max-width:768px) {
+      .get-started { flex-direction: column; }
     }
   </style>
 </head>
+
 <body>
-  <header data-page="about">  <!-- change "about" to "what-we-do", "resume", "plans", or "profile" per page -->
+
+  <!-- Shared header/nav -->
+  <header data-page="profile">
     <div class="container">
       <div class="header-brand">
         <div class="logo">Luminary Staffing</div>
@@ -87,73 +139,135 @@
       </div>
       <nav>
         <ul>
-          <li><a href="about.html" class="nav-link" data-target="about">About Us</a></li>
+          <li><a href="about.html"      class="nav-link" data-target="about">About Us</a></li>
           <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
-          <li><a href="resume.html" class="nav-link" data-target="resume">Resume</a></li>
-          <li><a href="plan.html" class="nav-link" data-target="plans">Plans</a></li>
-          <li><a href="#"        class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
+          <li><a href="resume.html"     class="nav-link" data-target="resume">Resume</a></li>
+          <li><a href="plan.html"       class="nav-link" data-target="plans">Plans</a></li>
+          <li><a href="#"               class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  
 
-<div class="form-wrapper">
-  <h2>Login to Your Account</h2>
-  <form onsubmit="handleLogin(event)">
-    <input type="email" id="email" placeholder="Email Address" required />
-    <input type="password" id="pin" placeholder="4-digit PIN" required />
-    <input type="date" id="dob" required />
-    <button type="submit">Login</button>
-  </form>
+  <div class="container">
+    <div class="get-started">
+
+      <!-- Panel 1: Contact Us, with SVG above -->
+<div class="panel contact" data-aos="fade-up">
+  <div style="display:flex; justify-content:center; margin-bottom:30px; margin-top:12px;">
+    <img 
+      src="assets/images/questions.svg" 
+      alt="Have Questions?" 
+      style="height:140px; width:auto; max-width:95%; display:block;" 
+      loading="lazy"
+    />
+  </div>
+  <h2>Have Questions?</h2>
+  <p>Not quite ready to enroll or you need more information?<br/>Our team is here to help you every step of the way.</p>
+ 
+  <p style="margin-top:20px; font-size:0.98rem; color:#b58900;">Your information is confidential.<br>We never share your details with third parties.</p>
 </div>
 
+      <!-- Panel 2: Sign‑Up Form (UPDATED) -->
+<div class="panel signup" data-aos="fade-up" data-aos-delay="200">
+  <h2>Create Your Account</h2>
+  <form class="signup-form" id="luminarySignup" enctype="multipart/form-data" autocomplete="off">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" placeholder="Your first name" required />
+
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Your last name" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+    <label for="whatsapp">WhatsApp Number</label>
+    <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1 123-456-7890" required />
+
+    <label for="workAuth">Current Work Authorization</label>
+    <input type="text" id="workAuth" name="workAuth" placeholder="e.g. CPT, OPT, STEM-OPT, H1B, GC EAD" required />
+
+    <label for="resumeFile">Upload Your Current Resume</label>
+    <input type="file" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx" />
+
+    <label for="questions">Any Questions?</label>
+    <input type="text" id="questions" name="questions" placeholder="e.g. How this works, Can it help me ?" />
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <div class="success-msg" id="signup-success" style="display:none;">
+    <h2>Welcome to the Luminary Family! 🌟</h2>
+    <p>Thank you for signing up.<br>
+    One of our coordinators will contact you shortly ! .<br>
+    <strong>Your journey to career success starts now!</strong>
+    </p>
+    <a href="welcome.html" class="btn-contact">Return to Home</a>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer data-aos="fade-up" data-aos-delay="300">
+    <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS & Profile Logic -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration:600, once:true });
+
+    // Highlight the Profile nav item
+    document.querySelectorAll('nav .nav-link').forEach(a => {
+      if (a.dataset.target === document.querySelector('header').dataset.page) {
+        a.classList.add('active');
+      }
+    });
+
+    // Profile button logic (if someone clicks Profile in nav)
+    document.getElementById('nav-profile').addEventListener('click', e => {
+      e.preventDefault();
+      if (localStorage.getItem('luminary_signup')) {
+        window.location.href = 'dashboard/seeker-dashboard.html';
+      } else {
+        const goSignUp = confirm(
+          'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
+        );
+        window.location.href = goSignUp ? 'signup.html' : 'login.html';
+      }
+    });
+  </script>
 <script>
-  function handleLogin(e) {
+  const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwm10ATicrKuRP5mz1KCfWOV969IeJFFDiObUhxoVqlMutFrka2DLstqMQADuC-YHYv9w/exec";
+  document.getElementById('luminarySignup').addEventListener('submit', function(e) {
     e.preventDefault();
-    const email = document.getElementById("email").value;
-    const pin = document.getElementById("pin").value;
-    const dob = document.getElementById("dob").value;
-
-    const storedUser = localStorage.getItem(email);
-    if (!storedUser) {
-      alert("❌ No user found with this email.");
-      return;
-    }
-
-    const user = JSON.parse(storedUser);
-    if (user.pin === pin && user.dob === dob) {
-      alert("✅ Login successful!");
-      window.location.href = "dashboard/seeker-dashboard.html";
+    const form = e.target;
+    const formData = new FormData(form);
+    // Add timestamp
+    const now = new Date();
+    formData.append('Timestamp', now.toLocaleString());
+    // Basic resume filename handling
+    if(form.resumeFile && form.resumeFile.files.length > 0){
+      formData.append('resumeFileName', form.resumeFile.files[0].name);
     } else {
-      alert("❌ Incorrect PIN or Date of Birth.");
+      formData.append('resumeFileName', '');
     }
-  }
-</script>
-<script>
-  // 1️⃣ Highlight the current page link
-  const header = document.querySelector('header[data-page]');
-  const current = header.getAttribute('data-page');
-  document.querySelectorAll('.nav-link').forEach(a => {
-    if (a.dataset.target === current) a.classList.add('active');
+  
+    fetch(SHEET_WEBAPP_URL, {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      form.style.display = "none";
+      document.getElementById('signup-success').style.display = "block";
+    })
+    .catch(err => {
+      alert("❌ Something went wrong. Please try again or contact helpmeluminary@gmail.com");
+    });
   });
-
-  // 2️⃣ Profile button logic
-  document.getElementById('nav-profile').addEventListener('click', e => {
-    e.preventDefault();
-    const signedIn = !!localStorage.getItem('luminary_signup');
-    if (signedIn) {
-      // Already signed in → dashboard
-      window.location.href = 'dashboard/seeker-dashboard.html';
-    } else {
-      // Not signed in → prompt for Sign‑Up or Login
-      const goSignUp = confirm(
-        'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
-      );
-      window.location.href = goSignUp ? 'signup.html' : 'login.html';
-    }
-  });
-</script>
+  </script>
 
 </body>
 </html>
