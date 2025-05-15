@@ -117,7 +117,11 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     }
-
+    @media (max-width: 600px) {
+  .panel.contact img {
+    height: 80px !important;
+  }
+}
     @media(max-width:768px) {
       .get-started { flex-direction: column; }
     }
@@ -148,38 +152,58 @@
   <div class="container">
     <div class="get-started">
 
-      <!-- Panel 1: Contact Us -->
-      <div class="panel contact" data-aos="fade-up">
-        <h2>Have Questions?</h2>
-        <p>Not quite ready to enroll or you need more information?<br/>Our team is here to help you every step of the way.</p>
-        <a href="contactus.html" class="btn-contact">Contact Us</a>
-      </div>
+      <!-- Panel 1: Contact Us, with SVG above -->
+<div class="panel contact" data-aos="fade-up">
+  <div style="display:flex; justify-content:center; margin-bottom:30px; margin-top:12px;">
+    <img 
+      src="assets/images/questions.svg" 
+      alt="Have Questions?" 
+      style="height:140px; width:auto; max-width:95%; display:block;" 
+      loading="lazy"
+    />
+  </div>
+  <h2>Have Questions?</h2>
+  <p>Not quite ready to enroll or you need more information?<br/>Our team is here to help you every step of the way.</p>
+ 
+  <p style="margin-top:20px; font-size:0.98rem; color:#b58900;">Your information is confidential.<br>We never share your details with third parties.</p>
+</div>
 
-      <!-- Panel 2: Sign‑Up Form -->
-      <div class="panel signup" data-aos="fade-up" data-aos-delay="200">
-        <h2>Create Your Account</h2>
-        <form class="signup-form" action="signup-handler.html" method="POST" enctype="multipart/form-data">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" placeholder="Your first name" required />
+      <!-- Panel 2: Sign‑Up Form (UPDATED) -->
+<div class="panel signup" data-aos="fade-up" data-aos-delay="200">
+  <h2>Create Your Account</h2>
+  <form class="signup-form" id="luminarySignup" enctype="multipart/form-data" autocomplete="off">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" placeholder="Your first name" required />
 
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" placeholder="Your last name" required />
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Your last name" required />
 
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
-          <label for="whatsapp">WhatsApp Number</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1 123-456-7890" required />
+    <label for="whatsapp">WhatsApp Number</label>
+    <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1 123-456-7890" required />
 
-          <label for="auth">Current Work Authorization</label>
-          <input type="text" id="auth" name="workAuth" placeholder="e.g. CPT, OPT, STEM-OPT, H1B, GC EAD" required />
+    <label for="workAuth">Current Work Authorization</label>
+    <input type="text" id="workAuth" name="workAuth" placeholder="e.g. CPT, OPT, STEM-OPT, H1B, GC EAD" required />
 
-          <label for="resumeFile">Upload Your Current Resume</label>
-          <input type="file" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx" required />
+    <label for="resumeFile">Upload Your Current Resume</label>
+    <input type="file" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx" />
 
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
+    <label for="questions">Any Questions?</label>
+    <input type="text" id="questions" name="questions" placeholder="e.g. How this works, Can it help me ?" />
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <div class="success-msg" id="signup-success" style="display:none;">
+    <h2>Welcome to the Luminary Family! 🌟</h2>
+    <p>Thank you for signing up.<br>
+    One of our coordinators will contact you shortly ! .<br>
+    <strong>Your journey to career success starts now!</strong>
+    </p>
+    <a href="welcome.html" class="btn-contact">Return to Home</a>
+  </div>
+</div>
 
     </div>
   </div>
@@ -214,5 +238,36 @@
       }
     });
   </script>
+<script>
+  const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwm10ATicrKuRP5mz1KCfWOV969IeJFFDiObUhxoVqlMutFrka2DLstqMQADuC-YHYv9w/exec";
+  document.getElementById('luminarySignup').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    // Add timestamp
+    const now = new Date();
+    formData.append('Timestamp', now.toLocaleString());
+    // Basic resume filename handling
+    if(form.resumeFile && form.resumeFile.files.length > 0){
+      formData.append('resumeFileName', form.resumeFile.files[0].name);
+    } else {
+      formData.append('resumeFileName', '');
+    }
+  
+    fetch(SHEET_WEBAPP_URL, {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      form.style.display = "none";
+      document.getElementById('signup-success').style.display = "block";
+    })
+    .catch(err => {
+      alert("❌ Something went wrong. Please try again or contact helpmeluminary@gmail.com");
+    });
+  });
+  </script>
+
 </body>
 </html>
