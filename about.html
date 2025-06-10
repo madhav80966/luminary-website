@@ -246,14 +246,15 @@
         <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
       </div>
       <nav>
-        <ul>
-          <li><a href="about.html" class="nav-link" data-target="about">About Us</a></li>
-          <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
-          <li><a href="resume.html" class="nav-link" data-target="resume">Resume</a></li>
-          <li><a href="plan.html" class="nav-link" data-target="plans">Plans</a></li>
-          <li><a href="#"        class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
-        </ul>
-      </nav>
+  <ul>
+    <li><a href="about.html" class="nav-link" data-target="about">About Us</a></li>
+    <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
+    <li><a href="resume.html" class="nav-link" data-target="resume">Resume</a></li>
+    <li><a href="plans.html" class="nav-link" data-target="plans">Plans</a></li>
+    <li><a href="https://forms.gle/HtZQnkUc7gEZanNG9" class="nav-link" target="_blank">Contact Us</a></li>
+    <li><a href="#" class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
+  </ul>
+</nav>
     </div>
   </header>
   
@@ -373,12 +374,13 @@
   <!-- Call to Action -->
   <section class="cta" data-aos="fade-up">
     <h2>Ready to Accelerate Your Career?</h2>
-    <a href="signup.html" class="btn btn-primary">Get Started Now</a>
+    <a href="https://forms.gle/jzfmWMJF1jAU3qSg7" class="btn btn-primary">Get Started Now</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
-  </footer>
+  <p>&copy; 2025 Luminary Staffing. All Rights Reserved.</p>
+  <p>Contact: <a href="mailto:info@luminarystaffing.com" style="color:#f5b200;">info@luminarystaffing.com</a></p>
+</footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
@@ -405,21 +407,7 @@ document.querySelectorAll('header[data-page] .nav-link').forEach(a => {
   }
 });
 
-  // 2️⃣ Profile button logic
-  document.getElementById('nav-profile').addEventListener('click', e => {
-    e.preventDefault();
-    const signedIn = !!localStorage.getItem('luminary_signup');
-    if (signedIn) {
-      // Already signed in → dashboard
-      window.location.href = 'dashboard/seeker-dashboard.html';
-    } else {
-      // Not signed in → prompt for Sign‑Up or Login
-      const goSignUp = confirm(
-        'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
-      );
-      window.location.href = goSignUp ? 'signup.html' : 'login.html';
-    }
-  });
+  
 </script>
 
 
