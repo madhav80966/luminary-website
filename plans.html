@@ -132,14 +132,14 @@
         <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
       </div>
       <nav>
-        <ul>
-          <li><a href="about.html"    class="nav-link" data-target="about">About Us</a></li>
-          <li><a href="what-we-do.html"class="nav-link" data-target="what-we-do">What We Do</a></li>
-          <li><a href="resume.html"    class="nav-link" data-target="resume">Resume</a></li>
-          <li><a href="plan.html"      class="nav-link active" data-target="plans">Plans</a></li>
-          <li><a href="#"              class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
-        </ul>
-      </nav>
+  <ul>
+    <li><a href="about.html" class="nav-link" data-target="about">About Us</a></li>
+    <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
+    <li><a href="resume.html" class="nav-link" data-target="resume">Resume</a></li>
+    <li><a href="plans.html" class="nav-link" data-target="plans">Plans</a></li>
+    <li><a href="https://forms.gle/HtZQnkUc7gEZanNG9" class="nav-link" target="_blank">Contact Us</a></li>
+  </ul>
+</nav>
     </div>
   </header>
 
@@ -174,9 +174,8 @@
       <ul class="plan-features">
         <li>600 Job Applications</li>
         <li>Resume & LinkedIn Review</li>
-        <li>Email Support</li>
-      </ul>
-      <a href="https://forms.gle/UMjXWkydF77sLfA26"target="_blank"class="btn-plan">Select Starter</a>
+      </ul> 
+      <a href="https://forms.gle/jzfmWMJF1jAU3qSg7"target="_blank"class="btn-plan">Select Starter</a>
     </div>
 
     <div class="plan-card" data-aos="fade-up" data-aos-delay="400">
@@ -184,10 +183,11 @@
       <div class="plan-price">$279<span>/mo</span></div>
       <ul class="plan-features">
         <li>1,000 Job Applications</li>
+        <li>Resume & LinkedIn Review</li>
         <li>Priority Resume Optimization</li>
-        <li>Weekly Progress Calls</li>
+        
       </ul>
-      <a href="https://forms.gle/UMjXWkydF77sLfA26"target="_blank"class="btn-plan">Select Accelerator</a>
+      <a href="https://forms.gle/jzfmWMJF1jAU3qSg7"target="_blank"class="btn-plan">Select Accelerator</a>
     </div>
 
     <div class="plan-card popular" data-aos="fade-up" data-aos-delay="500">
@@ -195,10 +195,11 @@
       <div class="plan-price">$349<span>/mo</span></div>
       <ul class="plan-features">
         <li>1,500 Job Applications</li>
-        <li>Interview Coaching</li>
-        <li>24/7 Chat Support</li>
+        <li>Resume & LinkedIn Review</li>
+        <li>Priority Resume Optimization</li>
+       <li>Bi-Weekly Progress Calls</li>
       </ul>
-      <a href="https://forms.gle/UMjXWkydF77sLfA26"target="_blank"class="btn-plan">Select Pro Launch</a>
+      <a href="https://forms.gle/jzfmWMJF1jAU3qSg7"target="_blank"class="btn-plan">Select Pro Launch</a>
     </div>
 
     <div class="plan-card" data-aos="fade-up" data-aos-delay="600">
@@ -206,22 +207,25 @@
       <div class="plan-price">$429<span>/mo</span></div>
       <ul class="plan-features">
         <li>2,000 Job Applications</li>
+        <li>Priority Resume & LinkedIn Review</li>
         <li>Dedicated Account Manager</li>
+        <li>Weekly Progress Calls</li>
         <li>Offer Negotiation Assistance</li>
       </ul>
-      <a href="https://forms.gle/UMjXWkydF77sLfA26"target="_blank"class="btn-plan">Select Ultimate</a>
+      <a href="https://forms.gle/jzfmWMJF1jAU3qSg7"target="_blank"class="btn-plan">Select Ultimate</a>
     </div>
 
     <div class="plan-card" data-aos="fade-up" data-aos-delay="700">
       <div class="plan-name"><strong>Aggressive Custom Plan</strong></div>
-      <a href="https://forms.gle/UMjXWkydF77sLfA26"target="_blank"class="btn-plan">Discuss & Apply</a>
+      <a href="https://forms.gle/jzfmWMJF1jAU3qSg7"target="_blank"class="btn-plan">Discuss & Apply</a>
     </div>
   </div>
 
   <!-- FOOTER -->
-  <footer data-aos="fade-up" data-aos-delay="800">
-    <p>&copy; 2025 Luminary Staffing. All rights reserved.</p>
-  </footer>
+  <footer>
+  <p>&copy; 2025 Luminary Staffing. All Rights Reserved.</p>
+  <p>Contact: <a href="mailto:info@luminarystaffing.com" style="color:#f5b200;">info@luminarystaffing.com</a></p>
+</footer>
 
   <!-- AOS & Profile Logic -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -229,17 +233,7 @@
     AOS.init({ duration:800, once:true });
 
     // Profile nav logic
-    document.getElementById('nav-profile').addEventListener('click', e=>{
-      e.preventDefault();
-      const signedIn = !!localStorage.getItem('luminary_signup');
-      if(signedIn) window.location = 'dashboard/seeker-dashboard.html';
-      else {
-        if(confirm('You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'))
-          window.location = 'signup.html';
-        else
-          window.location = 'login.html';
-      }
-    });
+    
   </script>
 </body>
 </html>
