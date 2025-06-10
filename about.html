@@ -142,6 +142,41 @@
       max-width:1100px;
       margin:auto;
     }
+
+    .mobile-menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #f5b200;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    top: 22px;
+    right: 24px;
+  }
+
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #0b1b35;
+    padding-top: 20px;
+    margin-top: 10px;
+  }
+
+  nav .nav-links.active {
+    display: flex;
+  }
+
+  nav .nav-links a {
+    padding: 10px 20px;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+}
     .feature-card {
       background:#fff;
       border-radius:12px;
@@ -280,14 +315,14 @@
         <div class="logo">Luminary Staffing</div>
         <div class="tagline">Women‑Founded. AI‑Powered. Your Career’s Next Leap.</div>
       </div>
-      <nav>
-  <ul>
-    <li><a href="about.html" class="nav-link" data-target="about">About Us</a></li>
-    <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
-    <li><a href="resume.html" class="nav-link" data-target="resume">Resume</a></li>
-    <li><a href="plans.html" class="nav-link" data-target="plans">Plans</a></li>
-    <li><a href="https://forms.gle/HtZQnkUc7gEZanNG9" class="nav-link" target="_blank">Contact Us</a></li>
-    </ul>
+      <nav><div class="mobile-menu-toggle" onclick="toggleMenu()">☰</div>
+<ul class="nav-links">
+  <li><a href="about.html" class="nav-link" data-target="about">About Us</a></li>
+  <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
+  <li><a href="resume.html" class="nav-link" data-target="resume">Resume</a></li>
+  <li><a href="plans.html" class="nav-link" data-target="plans">Plans</a></li>
+  <li><a href="https://forms.gle/HtZQnkUc7gEZanNG9" class="nav-link" target="_blank">Contact Us</a></li>
+</ul>
 </nav>
     </div>
   </header>
