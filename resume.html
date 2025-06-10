@@ -9,11 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
-  <!-- Global Styles (header, nav, footer, base) -->
+  <!-- Global Styles -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Page‑Specific Styles -->
   <style>
+    /* ...your previous CSS here, unchanged... */
     :root { --mouseX: 50px; --mouseY: 50px; }
 
     .page-content {
@@ -99,112 +99,37 @@
       text-align: center;
     }
 
-    .build-form {
-      padding: 60px 0;
-    }
-    .build-form h2 {
-      font-family: 'Playfair Display', serif;
-      color: #0b1b35;
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .form-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      border: 2px solid #f5b200;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      align-items: center;
-      position: relative;
-    }
-    .form-illustration {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-    .form-illustration img {
-      max-width: 500px;
-      height: auto;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-    }
-    .resume-form {
-      flex: 1;
-      min-width: 280px;
-    }
-    .resume-form label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #0b1b35;
-    }
-    .resume-form input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 2px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      transition: border .3s, box-shadow .3s;
-    }
-    .resume-form input:focus {
-      border-color: #f5b200;
-      box-shadow: 0 0 6px rgba(245,178,0,0.5);
-      outline: none;
-    }
-    .resume-form button {
-      background: #0b1b35;
-      color: #fff;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background .3s, transform .2s, box-shadow .3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .resume-form button:hover {
-      background: #f5b200;
-      color: #0b1b35;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-
     .cta {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 60px;
     }
     .btn-cta {
       display: inline-block;
-      padding: 14px 36px;
+      padding: 16px 44px;
       background: #0b1b35;
       color: #fff;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
-      transition: background .3s, transform .2s, box-shadow .3s;
+      font-size: 1.2rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background .3s, color .3s, transform .2s, box-shadow .3s;
     }
     .btn-cta:hover {
       background: #f5b200;
       color: #0b1b35;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.03);
       box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     }
 
     @media(max-width: 768px) {
       .page-content h1 { font-size: 2.25rem; }
       .page-content p  { font-size: .95rem; }
-      .form-section    { flex-direction: column; }
     }
   </style>
 </head>
 
 <body>
-
   <!--—— Shared Header —→-->
   <header data-page="resume">
     <div class="container">
@@ -218,8 +143,7 @@
           <li><a href="what-we-do.html" class="nav-link" data-target="what-we-do">What We Do</a></li>
           <li><a href="resume.html"     class="nav-link" data-target="resume">Resume</a></li>
           <li><a href="plans.html"      class="nav-link" data-target="plans">Plans</a></li>
-          <li><a href="#"               class="nav-link" data-target="profile" id="nav-profile">Profile</a></li>
-        </ul>
+           </ul>
       </nav>
     </div>
   </header>
@@ -266,27 +190,8 @@
         </p>
       </div>
 
-      <section class="build-form" data-aos="fade-up" data-aos-delay="600">
-        <h2>Build a Perfect Resume for You, Today</h2>
-        <div style="max-width:800px; margin:0 auto;">
-          <!-- Embed your Google Form here -->
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfX8SLQXLZIXILwUmBqV-rUErWAoYrB6IUlly88ZaISbH1NCg/viewform?embedded=true"
-            width="100%"
-            height="950"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-          >
-            Loading…  
-          </iframe>
-        </div>
-      </section>
-      
-
-
-      <div class="cta" data-aos="fade-up" data-aos-delay="700">
-        <a href="https://forms.gle/UMjXWkydF77sLfA26"
+      <div class="cta" data-aos="fade-up" data-aos-delay="600">
+        <a href="https://forms.gle/jzfmWMJF1jAU3qSg7"
            target="_blank"
            class="btn-cta">
           Get Your Resume
@@ -315,18 +220,7 @@
     document.querySelectorAll('nav a.nav-link')
             .forEach(a => { if(a.dataset.target === page) a.classList.add('active'); });
 
-    // Profile button logic
-    document.getElementById('nav-profile').addEventListener('click', e => {
-      e.preventDefault();
-      if (localStorage.getItem('luminary_signup')) {
-        window.location.href = 'dashboard/seeker-dashboard.html';
-      } else {
-        const goSignUp = confirm(
-          'You need an account to view your profile.\n\nOK → Sign Up\nCancel → Login'
-        );
-        window.location.href = goSignUp ? 'signup.html' : 'login.html';
-      }
-    });
+    
   </script>
 </body>
 </html>
