@@ -478,7 +478,12 @@ document.querySelectorAll('header[data-page] .nav-link').forEach(a => {
 
   
 </script>
-
+<script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
